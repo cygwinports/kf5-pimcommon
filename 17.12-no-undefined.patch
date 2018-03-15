@@ -1,0 +1,44 @@
+--- origsrc/pimcommon-17.12.3/src/pimcommon/genericplugins/abstractgenericplugininterface.cpp	2018-02-25 23:42:56.000000000 -0600
++++ src/pimcommon-17.12.3/src/pimcommon/genericplugins/abstractgenericplugininterface.cpp	2018-03-13 18:45:49.048316400 -0500
+@@ -67,3 +67,19 @@ void AbstractGenericPluginInterface::sho
+ {
+     Q_UNUSED(parentWidget);
+ }
++
++ActionType::ActionType(QAction *action, ActionType::Type type)
++    : mAction(action)
++    , mType(type)
++{
++}
++
++QAction *ActionType::action() const
++{
++    return mAction;
++}
++
++ActionType::Type ActionType::type() const
++{
++    return mType;
++}
+--- origsrc/pimcommon-17.12.3/src/pimcommonakonadi/genericplugins/genericplugininterface.cpp	2018-02-25 23:42:56.000000000 -0600
++++ src/pimcommon-17.12.3/src/pimcommonakonadi/genericplugins/genericplugininterface.cpp	2018-03-13 18:45:39.403598400 -0500
+@@ -80,19 +80,3 @@ PimCommon::GenericPluginInterface::Requi
+ {
+     return None;
+ }
+-
+-ActionType::ActionType(QAction *action, ActionType::Type type)
+-    : mAction(action)
+-    , mType(type)
+-{
+-}
+-
+-QAction *ActionType::action() const
+-{
+-    return mAction;
+-}
+-
+-ActionType::Type ActionType::type() const
+-{
+-    return mType;
+-}

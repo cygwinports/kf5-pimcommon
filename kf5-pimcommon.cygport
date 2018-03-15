@@ -1,0 +1,40 @@
+inherit kf5
+
+NAME="kf5-pimcommon"
+VERSION=17.12.3
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="KDE PIM common API library"
+
+PATCH_URI="
+	17.12-no-undefined.patch
+"
+
+PKG_NAMES="libKF5PimCommon5 libKF5PimCommon-devel
+	   libKF5PimCommonAkonadi5 libKF5PimCommonAkonadi-devel"
+libKF5PimCommon5_CONTENTS="
+	etc/xdg/pimcommon.*
+	usr/bin/cygKF5PimCommon-5.dll
+	usr/share/doc/${NAME}
+	usr/share/locale/*/LC_MESSAGES/libpimcommon.mo
+"
+libKF5PimCommon_devel_REQUIRES="libKF5Config-devel libKF5CoreAddons-devel libKF5KIO-devel libKF5PimTextEdit-devel libKF5WidgetsAddons-devel libQt5Core-devel libQt5Gui-devel"
+libKF5PimCommon_devel_CONTENTS="
+	usr/include/KF5/[Pp]im[Cc]ommon/
+	usr/include/KF5/pimcommon_version.h
+	usr/lib/cmake/KF5PimCommon/
+	usr/lib/libKF5PimCommon.dll.a
+	usr/lib/qt5/mkspecs/modules/qt_PimCommon.pri
+	usr/lib/qt5/plugins/designer/pimcommonwidgets.dll
+"
+libKF5PimCommonAkonadi5_CONTENTS="
+	usr/bin/cygKF5PimCommonAkonadi-5.dll
+"
+libKF5PimCommonAkonadi_devel_REQUIRES="libKF5Akonadi-devel libKF5IMAP-devel libKF5PimCommon-devel"
+libKF5PimCommonAkonadi_devel_CONTENTS="
+	usr/include/KF5/[Pp]im[Cc]ommon[Aa]konadi/
+	usr/include/KF5/pimcommonakonadi_version.h
+	usr/lib/cmake/KF5PimCommonAkonadi/
+	usr/lib/libKF5PimCommonAkonadi.dll.a
+	usr/lib/qt5/mkspecs/modules/qt_PimCommonAkonadi.pri
+"
